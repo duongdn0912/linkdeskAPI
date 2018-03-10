@@ -22,7 +22,7 @@ public class SpringBootRestTestClient {
          
         if(usersMap!=null){
             for(LinkedHashMap<String, Object> map : usersMap){
-                System.out.println("User : id="+map.get("id")+", Name="+map.get("name")+", Age="+map.get("age")+", Salary="+map.get("salary"));;
+                System.out.println("User : id="+map.get("id")+", Name="+map.get("name")+", Age="+map.get("age")+", Salary="+map.get("salary"));
             }
         }else{
             System.out.println("No user exist----------");
