@@ -76,7 +76,7 @@ public class User {
 		this.salary = salary;
 	}
 
-	@JsonIgnore
+//	@JsonIgnore
 	public String getUserName() {
 		return userName;
 	}
@@ -85,7 +85,7 @@ public class User {
 		this.userName = userName;
 	}
 
-	@JsonIgnore
+//	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
