@@ -22,5 +22,7 @@ public interface UserService {
 	void deleteAllUsers();
 	
 	boolean isUserExist(User user);
+
+	User loginWithUserName(String userName, String password);
 	
 }

@@ -64,6 +64,15 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
+	public User loginWithUserName(String userName, String password) {
+		for(User user : users){
+			if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
+				return user;
+			}
+		}
+		return null;
+	}
+
 	public boolean isUserExist(User user) {
 		return findByName(user.getName())!=null;
 	}
@@ -74,10 +83,11 @@ public class UserServiceImpl implements UserService{
 
 	private static List<User> populateDummyUsers(){
 		List<User> users = new ArrayList<User>();
-		users.add(new User(counter.incrementAndGet(),"Sam",30, 70000));
-		users.add(new User(counter.incrementAndGet(),"Tom",40, 50000));
-		users.add(new User(counter.incrementAndGet(),"Jerome",45, 30000));
-		users.add(new User(counter.incrementAndGet(),"Silvia",50, 40000));
+		users.add(new User(counter.incrementAndGet(),"Sam",30, 70000, "sam", "1", "中田", "https://i.pinimg.com/originals/c3/d4/3e/c3d43ed603fc6f4b8385520db69b6231.jpg"));
+		users.add(new User(counter.incrementAndGet(),"Tom",40, 50000, "tom", "2", "増原", "https://media.istockphoto.com/vectors/gentleman-icon-set-vector-id585293894"));
+		users.add(new User(counter.incrementAndGet(),"Jerome",45, 30000, "jerome", "3", "小野", "https://previews.123rf.com/images/dervish37/dervish371407/dervish37140700041/30033253-icon-of-the-gentleman.jpg"));
+		users.add(new User(counter.incrementAndGet(),"Silvia",50, 40000, "silvia", "4", "", "https://cdn.vectorstock.com/i/thumb-large/43/55/a-modern-avatar-of-a-gentleman-vector-17924355.jpg"));
+		users.add(new User(counter.incrementAndGet(),"giang",50, 40000, "giang", "giang123", "ジァン", "https://t3.ftcdn.net/jpg/00/92/51/08/500_F_92510885_Im4j6cUajyto6uzo8uDR1XYJNmTSQ49Y.jpg"));
 		return users;
 	}
 

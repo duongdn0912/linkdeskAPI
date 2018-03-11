@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.seasar.cms.s2-classbuilder:s2-classbuilder:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/seasar/cms/s2-classbuilder/s2-classbuilder/unknown/s2-classbuilder-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/seasar/cms/s2-classbuilder/s2-classbuilder/unknown/s2-classbuilder-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/seasar/cms/s2-classbuilder/s2-classbuilder/unknown/s2-classbuilder-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
