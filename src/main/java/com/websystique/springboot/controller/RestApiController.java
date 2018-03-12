@@ -2,6 +2,8 @@ package com.websystique.springboot.controller;
 
 import java.util.List;
 
+import com.websystique.springboot.model.SeatInfo;
+import com.websystique.springboot.service.CheckinService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,10 @@ public class RestApiController {
 	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
 
 	@Autowired
-	UserService userService; //Service which will do all data retrieval/manipulation work
+	UserService userService;
+
+	@Autowired
+	CheckinService checkinService;
 
 	// -------------------Retrieve All Users---------------------------------------------
 
@@ -82,5 +87,23 @@ public class RestApiController {
 			return new ResponseEntity(new CustomErrorType("User not found"), HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/checkin/", method = RequestMethod.POST)
+	public ResponseEntity<?> checkin(@RequestBody SeatInfo seatInfo, UriComponentsBuilder ucBuilder) {
+		logger.info("Creating User : {}", seatInfo);
+
+
+		Boolean isCheckInSuccess = checkinService.checkIn(seatInfo.getSeatNumber(), seatInfo.getUserNumber());
+		if (!isCheckInSuccess) {
+			return new ResponseEntity(new CustomErrorType("Check in failed"), HttpStatus.NOT_ACCEPTABLE);
+		}
+		return new ResponseEntity<Boolean>(isCheckInSuccess, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/reset-seat/", method = RequestMethod.POST)
+	public ResponseEntity<?> resetSeat() {
+		logger.info("resetSeat");
+		return new ResponseEntity<Boolean>(checkinService.resetSeat(), HttpStatus.OK);
 	}
 }

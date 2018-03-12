@@ -20,6 +20,8 @@ public class User {
 
 	private String avatarUrl;
 
+	private String userId;
+
 	public User(){
 		id=0;
 	}
@@ -31,17 +33,19 @@ public class User {
 		this.salary = salary;
 	}
 	
-	public User(long id, String name, int age, double salary, String userName, String password, String jpName, String avatarUrl){
+	public User(long id, String name, int age, double salary, String userId, String userName, String password, String jpName, String avatarUrl){
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.salary = salary;
+		this.userId = userId;
 		this.userName = userName;
 		this.password = password;
 		this.jpName = jpName;
 		this.avatarUrl = avatarUrl;
 	}
-	
+
+	@JsonIgnore
 	public long getId() {
 		return id;
 	}
@@ -108,6 +112,14 @@ public class User {
 
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	@Override
