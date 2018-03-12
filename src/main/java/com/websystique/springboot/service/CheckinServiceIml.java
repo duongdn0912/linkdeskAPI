@@ -51,4 +51,8 @@ public class CheckinServiceIml implements CheckinService{
         seatCheckedIn.clear();
         return true;
     }
+
+    public String[] getSeatDummyDatas () {
+        return seatDummyDatas;
+    }
 }

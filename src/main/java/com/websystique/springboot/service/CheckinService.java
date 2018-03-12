@@ -6,5 +6,6 @@ public interface CheckinService {
 
     Boolean checkIn (String seatNumber, String userId);
     Boolean resetSeat ();
+    String[] getSeatDummyDatas ();
 
 }

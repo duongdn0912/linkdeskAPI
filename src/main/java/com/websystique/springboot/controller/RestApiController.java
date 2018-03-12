@@ -1,6 +1,8 @@
 package com.websystique.springboot.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.websystique.springboot.model.SeatInfo;
 import com.websystique.springboot.service.CheckinService;
@@ -105,5 +107,13 @@ public class RestApiController {
 	public ResponseEntity<?> resetSeat() {
 		logger.info("resetSeat");
 		return new ResponseEntity<Boolean>(checkinService.resetSeat(), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/get-seats/", method = RequestMethod.GET)
+	public ResponseEntity<?> getSeats() {
+		logger.info("resetSeat");
+		Map<String, String[]> response = new HashMap<>();
+		response.put("seat-datas", checkinService.getSeatDummyDatas());
+		return new ResponseEntity<Map<String, String[]>>( response, HttpStatus.OK);
 	}
 }
