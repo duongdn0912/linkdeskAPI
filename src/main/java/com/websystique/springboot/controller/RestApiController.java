@@ -100,18 +100,22 @@ public class RestApiController {
 		if (!isCheckInSuccess) {
 			return new ResponseEntity(new CustomErrorType("Check in failed"), HttpStatus.NOT_ACCEPTABLE);
 		}
-		return new ResponseEntity<Boolean>(isCheckInSuccess, HttpStatus.OK);
+		Map<String, Boolean> response = new HashMap<>();		
+		response.put("result", isCheckInSuccess);
+		return new ResponseEntity<Map<String, Boolean>>(response, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/reset-seat/", method = RequestMethod.POST)
 	public ResponseEntity<?> resetSeat() {
 		logger.info("resetSeat");
-		return new ResponseEntity<Boolean>(checkinService.resetSeat(), HttpStatus.OK);
+		Map<String, Boolean> response = new HashMap<>();		
+		response.put("result", checkinService.resetSeat());
+		return new ResponseEntity<Map<String, Boolean>>(response, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/get-seats/", method = RequestMethod.GET)
 	public ResponseEntity<?> getSeats() {
-		logger.info("resetSeat");
+		logger.info("getSeats");
 		Map<String, String[]> response = new HashMap<>();
 		response.put("seat-datas", checkinService.getSeatDummyDatas());
 		return new ResponseEntity<Map<String, String[]>>( response, HttpStatus.OK);
