@@ -1,2 +1,2 @@
-server:
-  contextPath: /linkdeskapi
+#server:
+#  contextPath: /linkdeskapi
