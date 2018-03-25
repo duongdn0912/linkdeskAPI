@@ -100,7 +100,7 @@ public class RestApiController {
 		if (!isCheckInSuccess) {
 			return new ResponseEntity(new CustomErrorType("Check in failed"), HttpStatus.NOT_ACCEPTABLE);
 		}
-		Map<String, Boolean> response = new HashMap<>();		
+		Map<String, Boolean> response = new HashMap<>();
 		response.put("result", isCheckInSuccess);
 		return new ResponseEntity<Map<String, Boolean>>(response, HttpStatus.OK);
 	}
@@ -108,7 +108,7 @@ public class RestApiController {
 	@RequestMapping(value = "/reset-seat/", method = RequestMethod.POST)
 	public ResponseEntity<?> resetSeat() {
 		logger.info("resetSeat");
-		Map<String, Boolean> response = new HashMap<>();		
+		Map<String, Boolean> response = new HashMap<>();
 		response.put("result", checkinService.resetSeat());
 		return new ResponseEntity<Map<String, Boolean>>(response, HttpStatus.OK);
 	}
