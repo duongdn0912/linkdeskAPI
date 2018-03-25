@@ -8,7 +8,9 @@
 	<packaging>jar</packaging>
 
 	<name>SpringBootRestApiExample</name>
-
+	<properties>
+		<start-class>org.springframework.boot.App</start-class>
+	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

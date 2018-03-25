@@ -1,2 +1,3 @@
-#server:
-#  contextPath: /linkdeskapi
+server:
+  port: 8899
+  contextPath: /linkdeskapi
